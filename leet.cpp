@@ -14,11 +14,12 @@ struct ListNode {
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+
         ListNode* e = new ListNode();
         ListNode* head_ptr = e;
 
-        while(list1->next != nullptr && list2->next != nullptr){
-            std::cout<< list1->val << " compared to " << list2->val<<std::endl;
+        while(list1 != nullptr && list2 != nullptr){
+            //std::cout<< list1->val << " compared to " << list2->val<<std::endl;
             if(list1->val <= list2->val){
                 e->val = list1->val;
                 list1 = list1->next;
@@ -28,20 +29,32 @@ public:
                 list2 = list2->next;
             }
 
-            ListNode* tmp =  new ListNode();
-            e->next = tmp;
 
-            std::cout << e->val << " and " << e->next<<std::endl;
-
-            e = tmp;
+            if(list1 != nullptr && list2 != nullptr){
+                ListNode* tmp =  new ListNode();
+                e->next = tmp;
+                e = tmp;
+            }
         }
+
+
 
         while(list1 != nullptr){
             ListNode* tmp =  new ListNode();
             tmp->val = list1->val;
-            e->next = list1->next;
+            e->next = tmp;
 
+            e = tmp;
             list1 = list1->next;
+        }
+
+        while(list2 != nullptr){
+            ListNode* tmp =  new ListNode();
+            tmp->val = list2->val;
+            e->next = tmp;
+
+            e = tmp;
+            list2 = list2->next;
         }
 
 
