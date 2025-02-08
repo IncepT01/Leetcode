@@ -26,7 +26,6 @@ public:
         ListNode* head_ptr = e;
 
         while(list1 != nullptr && list2 != nullptr){
-            //std::cout<< list1->val << " compared to " << list2->val<<std::endl;
             if(list1->val <= list2->val){
                 e->val = list1->val;
                 list1 = list1->next;
@@ -65,7 +64,6 @@ public:
         }
 
 
-        //std::cout<<head_ptr->val;
         return head_ptr;
     }
 };
