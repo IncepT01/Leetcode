@@ -1,5 +1,18 @@
 class Main {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int[] sorted = new int[m+n];
+
+        int idx = 0;
+
+        while (idx < n && idx< m) {
+            if(nums1[idx] <= nums2[idx]){
+                sorted[idx] = nums1[idx];
+            }
+            else{
+                sorted[idx] = nums2[idx];
+            }
+        }
+
         
     }
 
