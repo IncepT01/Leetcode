@@ -15,15 +15,27 @@ class Main {
                 sorted[idx] = nums2[mIdx];
                 mIdx++;
             }
+            idx++;
         }
 
         //Ther are still items in nums2
-        if(idx >= n && idx < m){
-
+        if(nIdx >= n && mIdx < m){
+            while (mIdx < m) {
+                sorted[idx] = nums2[mIdx];
+                mIdx++;
+                idx++;
+            }
         }
-        else if(idx >= n && idx < m){
-
+        //Ther are still items in nums1
+        else if(nIdx < n && mIdx >= m){
+            while (nIdx < n) {
+                sorted[idx] = nums1[nIdx];
+                nIdx++;
+                idx++;
+            }
         }
+
+        
     }
 
     public static void main(String[] args){
