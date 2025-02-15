@@ -7,29 +7,29 @@ class Main {
         int mIdx = 0;
 
         while (nIdx < n && mIdx < m) {
-            if(nums1[idx] <= nums2[idx]){
-                sorted[idx] = nums1[nIdx];
-                nIdx++;
+            if(nums1[mIdx] <= nums2[nIdx]){
+                sorted[idx] = nums1[mIdx];
+                mIdx++;
             }
             else{
-                sorted[idx] = nums2[mIdx];
-                mIdx++;
+                sorted[idx] = nums2[nIdx];
+                nIdx++;
             }
             idx++;
         }
 
-        //There are still items in nums2
+        //There are still items in nums1
         if(nIdx >= n && mIdx < m){
             while (mIdx < m) {
-                sorted[idx] = nums2[mIdx];
+                sorted[idx] = nums1[mIdx];
                 mIdx++;
                 idx++;
             }
         }
-        //There are still items in nums1
+        //There are still items in nums2
         else if(nIdx < n && mIdx >= m){
             while (nIdx < n) {
-                sorted[idx] = nums1[nIdx];
+                sorted[idx] = nums2[nIdx];
                 nIdx++;
                 idx++;
             }
@@ -47,6 +47,10 @@ class Main {
 
         Main m = new Main();
 
-        m.merge(nums1, 3, nums2, 3);    
+        m.merge(nums1, 3, nums2, 3); 
+        
+        for(int i = 0; i < 6; i++){
+            System.out.print(nums1[i]);
+        }
     }
 }
