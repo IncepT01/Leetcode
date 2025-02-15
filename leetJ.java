@@ -18,7 +18,7 @@ class Main {
             idx++;
         }
 
-        //Ther are still items in nums2
+        //There are still items in nums2
         if(nIdx >= n && mIdx < m){
             while (mIdx < m) {
                 sorted[idx] = nums2[mIdx];
@@ -26,7 +26,7 @@ class Main {
                 idx++;
             }
         }
-        //Ther are still items in nums1
+        //There are still items in nums1
         else if(nIdx < n && mIdx >= m){
             while (nIdx < n) {
                 sorted[idx] = nums1[nIdx];
@@ -35,7 +35,10 @@ class Main {
             }
         }
 
-        
+        //Copy
+        for(int i = 0; i < n+m; i++){
+            nums1[i] = sorted[i];
+        }
     }
 
     public static void main(String[] args){
