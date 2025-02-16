@@ -10,7 +10,7 @@ class Main {
                 cnt++;               
             }
             else{
-                nums[numIdx] = nums[i];
+                res[numIdx] = nums[i];
                 numIdx++;
             }
         }
