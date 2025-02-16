@@ -18,17 +18,18 @@ class Main {
         for(int i = 0; i < numIdx; i++){
             nums[i] = res[i];
         }
-        return cnt;
+        return nums.length - cnt;
     }
 
     public static void main(String[] args){
-        int[] nums1 = {3,2,2,3};
+        int[] nums1 = {0,1,2,2,3,0,4,2};
         int[] nums2 = {2,5,6};
 
         Main m = new Main();
 
-        m.removeElement(nums1, 3); 
+        int a = m.removeElement(nums1, 2); 
         
+        System.out.println(a);
         for(int i = 0; i < nums1.length; i++){
             System.out.print(nums1[i]);
         }
