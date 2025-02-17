@@ -1,6 +1,29 @@
+import java.util.ArrayList;
+
 class Main {
-    int strStr(string haystack, string needle) {
-        
+    int strStr(String haystack, String needle) {
+
+        ArrayList<Integer> idx = new ArrayList<Integer>();
+        idx.add(-1);
+
+        for(int i = 0; i < haystack.length() - needle.length(); i++){
+            int skipCounter = 0;
+            boolean found = true;
+            for(int c = 0; i < needle.length(); i++){
+                if(haystack.charAt(i + c) != needle.charAt(c)){
+                    found = false;
+                    break;
+                }
+                skipCounter++;
+            }
+
+            if(found){
+                idx.add(i);
+            }
+            i += skipCounter;
+        }
+
+        return idx.get(0);
     }
 
     public static void main(String[] args){
