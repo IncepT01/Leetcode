@@ -4,26 +4,27 @@ class Main {
     int strStr(String haystack, String needle) {
 
         ArrayList<Integer> idx = new ArrayList<Integer>();
-        idx.add(-1);
 
-        for(int i = 0; i < haystack.length() - needle.length(); i++){
+        for(int i = 0; i < haystack.length() - needle.length() + 1; i++){
             int skipCounter = 0;
             boolean found = true;
-            for(int c = 0; i < needle.length(); i++){
+            for(int c = 0; c < needle.length(); c++){
                 if(haystack.charAt(i + c) != needle.charAt(c)){
                     found = false;
                     break;
                 }
-                skipCounter++;
+                else{
+                    skipCounter++; 
+                }
             }
 
             if(found){
                 idx.add(i);
             }
-            i += skipCounter;
+            //i += skipCounter;
         }
 
-        return idx.get(0);
+        return idx.size() == 0 ? -1 : idx.get(0);
     }
 
     public static void main(String[] args){
