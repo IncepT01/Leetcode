@@ -7,6 +7,11 @@ class Solution(object):
         :rtype: bool
         """
 
+        if(n==1 or n==7):
+            return True
+        if(n<10):
+            return False
+
         hs = set()
 
         while(True):
@@ -36,7 +41,7 @@ class Solution(object):
         while n > 0 :
             digit = n % 10
             res.append(digit)
-            n = math.floor(n/10)
+            n = n//10
             
 
         return res
