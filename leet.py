@@ -6,20 +6,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        s = set()
+
         l = len(nums)
-        i = 0
+        i = 1
 
         while(i < l):
-            print(s)
-            if nums[i] in s:
-                nums.pop(i)
-                i = i - 1
-                l = l - 1
+            if nums[i] != nums[i-1]:
+                i = i + 1
             else:
-                s.add(nums[i])
+                nums.pop(i)
+                l = l - 1
 
-            i = i + 1
 
 
 sol = Solution()
