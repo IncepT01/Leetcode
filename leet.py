@@ -7,15 +7,19 @@ class Solution(object):
         :rtype: int
         """
         s = set()
+        l = len(nums)
+        i = 0
 
-
-        for i in range(len(nums)):
+        while(i < l):
             print(s)
             if nums[i] in s:
                 nums.pop(i)
                 i = i - 1
+                l = l - 1
             else:
                 s.add(nums[i])
+
+            i = i + 1
 
 
 sol = Solution()
