@@ -7,15 +7,17 @@ class Solution(object):
         :rtype: int
         """
 
-        l = len(nums)
-        i = 1
+        if not nums:
+            return 0
 
-        while(i < l):
+        j = 1
+
+        for i in range(1, len(nums)):
             if nums[i] != nums[i-1]:
-                i = i + 1
-            else:
-                nums.pop(i)
-                l = l - 1
+                nums[j] = nums[i]
+                j = j + 1 
+
+        return j
 
 
 
