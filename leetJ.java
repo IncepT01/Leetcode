@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 class Main {
     int strStr(String haystack, String needle) {
@@ -27,6 +28,24 @@ class Main {
         return idx.size() == 0 ? -1 : idx.get(0);
     }
 
+    public static List<int[]> findPairs(int p) {
+        List<int[]> pairs = new ArrayList<>();
+
+        // Iterate beyond 2p to include all unique pairs
+        for (int a = p + 1; a <= p * p; a++) {
+            if ((a * p) % (a - p) == 0) {  // Ensure b is an integer
+                int b = (a * p) / (a - p);
+                pairs.add(new int[]{a, b});  
+                
+                // Add (b, a) only if a ≠ b
+                if (a != b) {
+                    pairs.add(new int[]{b, a});
+                }
+            }
+        }
+        return pairs;
+    }
+
     public static void main(String[] args){
         int[] nums1 = {0,1,2,2,3,0,4,2};
         int[] nums2 = {2,5,6};
@@ -41,5 +60,12 @@ class Main {
             System.out.print(nums1[i]);
         }
         */
+
+        int p = 5;  // Example input
+        List<int[]> pairs = Main.findPairs(p);
+
+        for (int[] pair : pairs) {
+            System.out.println("(" + pair[0] + ", " + pair[1] + ")");
+        }
     }
 }
